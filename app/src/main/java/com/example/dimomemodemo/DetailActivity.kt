@@ -96,8 +96,8 @@ class DetailActivity : AppCompatActivity() {
                 mapView.getMapAsync {
                     val latitude = viewModel!!.memoData.latitude
                     val longitude = viewModel!!.memoData.longitude
-                    val cameraPosition = CameraPosition(LatLng(latitude, longitude), 1.0)
-                    it.cameraPosition = cameraPosition
+                    val cameraUpdate = CameraUpdate.scrollTo(LatLng(latitude, longitude))
+                    it.moveCamera(cameraUpdate)
                 }
                 AlertDialog.Builder(this)
                     .setView(mapView)
